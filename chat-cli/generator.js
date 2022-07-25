@@ -16,12 +16,12 @@ module.exports = async (type, roomId) => {
     const client = new ClientType(roomId);
 
     let result;
-    result = await client.initMetaData();
+    result = await client.start();
     if (result.code !== 0) {
         return makeError(result.code, `[${type}]init metaData failed, msg: ${result.msg}`);
     }
 
-    result = await client.startReceive();
+    result = await client.wait();
     if (result.code !== 0) {
         return makeError(result.code, `[${type}]start receive failed, msg: ${result.msg}`);
     }

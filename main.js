@@ -1,5 +1,10 @@
 'use strict';
 
 const generator = require('./chat-cli/generator');
+const ws = require('ws');
 
-await generator('douyu', '74751');
+async function main() {
+    await generator('douyu', '235520');
+}
+
+main();
